@@ -76,7 +76,7 @@ function setFood() {
 
 var frames, keystate;
 function drawBoard() {
-
+  $('.container').empty();
   var $box = $("<div class='box'></div>");
   for (var x=0; x<40; x++){
   	for (var y=0; y<40; y++){
