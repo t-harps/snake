@@ -12,6 +12,8 @@ var KEY_LEFT = 37,
     KEY_RIGHT = 39,
     KEY_DOWN = 40;
 var SCORE = 0;
+var SPEED = 500;
+
 var grid = {
 	width: null,
 	height: null,
@@ -145,18 +147,21 @@ function update() {
 		if (0 > nx || nx > grid.width-1 || 
 		    0 > ny || ny > grid.height-1) {
 			SCORE = 0;
+		  SPEED = 500L
 	    $('.score').html(SCORE);
 			return init();
 		}
 
 		if (grid.get(nx, ny) === FRUIT) {
 			SCORE += 10;
+			SPEED -= 10;
 			$('.score').html(SCORE);
 			var tail = {x:nx, y:ny};
 			setFood();
 
 		} else if (grid.get(nx, ny) === SNAKE){
 			SCORE = 0;
+			SPEED = 500;
 	    $('.score').html(SCORE);
 			return init();
 		} else {
@@ -170,7 +175,7 @@ function update() {
 
 		snake.insert(tail.x, tail.y);
 		draw();
-	},100);
+	},SPEED);
 }
 
 function draw() {
