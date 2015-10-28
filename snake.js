@@ -1,5 +1,5 @@
-var COLS = 40,
-    ROWS = 40;
+var COLS = 20,
+    ROWS = 20;
 var EMPTY = 0,
     SNAKE = 1,
     FRUIT = 2;
@@ -78,9 +78,9 @@ var frames, keystate;
 function drawBoard() {
   $('.container').empty();
   var $box = $("<div class='box'></div>");
-  for (var x=0; x<40; x++){
-  	for (var y=0; y<40; y++){
-  		var box_id = (y + (x*40));
+  for (var x=0; x<20; x++){
+  	for (var y=0; y<20; y++){
+  		var box_id = (y + (x*20));
   		$('.container').append($("<div class='box' id="+box_id+"></div>"));
   	}
   }
@@ -175,7 +175,7 @@ function update() {
 function draw() {
 	for (var x=0; x < grid.width; x++){
 		for (var y=0; y < grid.height; y++){
-			var boxID = (y + (x*40));
+			var boxID = (y + (x*20));
 			var $box = $(".container").find("#"+boxID);
 			switch (grid.get(x,y)) {
 				case EMPTY:
