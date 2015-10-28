@@ -169,7 +169,7 @@ function update() {
 
 		snake.insert(tail.x, tail.y);
 		draw();
-	},500);
+	},1000);
 }
 
 function draw() {
